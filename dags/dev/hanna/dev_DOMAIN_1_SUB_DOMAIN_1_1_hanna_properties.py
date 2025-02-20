@@ -22,7 +22,7 @@ from airflow.operators.python_operator import PythonOperator
 """
 
 job_name = '<JOB_NAME>'
-pipeline_id = 59
+pipeline_id = 60
 pipeline_name = 'dev_DOMAIN_1_SUB_DOMAIN_1_1_hanna_properties'    
 flex_template = 'hana_flex_template.json'        
 stage = 'dev'
