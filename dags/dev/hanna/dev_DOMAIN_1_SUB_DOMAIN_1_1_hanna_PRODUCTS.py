@@ -22,12 +22,12 @@ from airflow.operators.python_operator import PythonOperator
 """
 
 job_name = "devhanna"
-pipeline_id = 65
+pipeline_id = 66
 pipeline_name = 'dev_DOMAIN_1_SUB_DOMAIN_1_1_hanna_PRODUCTS'    
 flex_template = 'hana_flex_template.json'        
 stage = 'dev'
 secret_name_origin =  'hanasecret'
-query = 'Select ID, KEY, VALUE, PROPERTY_TYPE, CREATED, UPDATED, BRAND, SITE from "DWH_AUTOMATION".properties'     
+query = 'SELECT pr.product_request_id, u.username AS creator_username, u.email AS creator_email, sd.name AS source_domain_name, td.name AS target_domain_name FROM "DWH_AUTOMATION".PRODUCT_REQUESTS pr JOIN "DWH_AUTOMATION".USERS u ON pr.creator_user_id = u.user_id JOIN "DWH_AUTOMATION".DOMAINS sd ON pr.source_domain_id = sd.domain_id JOIN "DWH_AUTOMATION".DOMAINS td ON pr.target_domain_id = td.domain_id WHERE pr.is_active = true order by pr.product_request_id ;'     
 dataflow_bucket_name = 'demo_dwh_bkt'
 dataflow_project = 'labuniformes'    
 target_project = 'labuniformes'  
