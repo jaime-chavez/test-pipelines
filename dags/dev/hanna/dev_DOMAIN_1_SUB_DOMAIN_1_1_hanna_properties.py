@@ -21,7 +21,7 @@ from airflow.operators.python_operator import PythonOperator
  * @since-version: 1.0
 """
 
-pipeline_id = 54
+pipeline_id = 55
 pipeline_name = 'dev_DOMAIN_1_SUB_DOMAIN_1_1_hanna_properties'    
 flex_template = 'hana_flex_template.json'        
 stage = 'dev'
@@ -31,7 +31,7 @@ dataflow_bucket_name = 'gs://demo_dwh_bkt'
 dataflow_project = 'labuniformes'    
 target_project = 'labuniformes'  
 target_dataset =  'demo dwh' 
-target_table = 'demo_test_csv'  
+target_table = 'properties'  
 datetime_start = '2025-02-18 12:30' 
 service_account = '457816054800-compute@developer.gserviceaccount.com' 
 subnetwork = 'projects/labuniformes/regions/us-east4/subnetworks/default' 
