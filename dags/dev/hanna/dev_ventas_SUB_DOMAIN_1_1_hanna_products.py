@@ -21,8 +21,8 @@ from airflow.operators.python_operator import PythonOperator
  * @since-version: 1.0
 """
 
-job_name = "devhanna"
-pipeline_id = 21
+job_name = "devhannaproducts"
+pipeline_id = 22
 pipeline_name = 'dev_ventas_SUB_DOMAIN_1_1_hanna_products'    
 flex_template = 'hana_flex_template.json'        
 stage = 'dev'
@@ -31,7 +31,7 @@ query = 'SELECT pr.product_request_id, u.username AS creator_username, u.email A
 dataflow_bucket_name = 'demo_dwh_bkt'
 dataflow_project = 'labuniformes'    
 target_project = 'labuniformes'  
-target_dataset =  'demo dwh' 
+target_dataset =  'demo_dwh' 
 target_table = 'products'  
 datetime_start = '2025-02-18 12:30' 
 service_account = '457816054800-compute@developer.gserviceaccount.com' 
@@ -42,7 +42,7 @@ region = 'us-east4'
 default_dag_args = {
     "start_date": datetime.datetime(2025, 2, 10, 12, 59),
     # 'retries': 1,
-    # 'retry_delay': datetime.timedelta(minutes=5),
+    # 'retry_delay': datetime.timedelta(minutes=1),
 }
 
 
@@ -131,7 +131,7 @@ def check_status(**kwargs):
         print(f"Current status: {response['currentState']}")
 
 
-    change_status_url = f'http://localhost:8090/api/pipelines/status/{pipeline_id}'
+    change_status_url = f'http://localhost:8090/api/pipelines/status'
     headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
