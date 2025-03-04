@@ -9,7 +9,7 @@ from airflow.exceptions import AirflowFailException
 from airflow.operators.python_operator import PythonOperator
 
 
-job_name = "devdomain1subdomain11hannaproperties"
+job_name = "5001dev"
 pipeline_id = 5001
 pipeline_name = '5001dev'    
 flex_template = 'hana_flex_template.json'        
