@@ -41,11 +41,11 @@ region = 'us-east4'
 
 #Datos Específicos
 api_method = 'GET'
-api_host = '{"name":"DEV_HOST", "type":"secret", "value":"DEV_HOST"}'
-api_headers = '{"name":"DEV_headers", "type":"secret", "value":"DEV_headers"}'
-api_port = '443
-api_pathparams = '{"name":"DEV_PATH_PARAMS", "type":"secret", "value":"DEV_PATH_PARAMS"}'
-api_queryparams = '{"name":"DEV_query_PARAMS", "type":"secret", "value":"DEV_query_PARAMS"}'
+api_host = 'qat-api.liverpool.com.mx'
+api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
+api_port = 'null
+api_pathparams = ''
+api_queryparams = '[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}]'
 api_protocol = 'https'
 
 default_dag_args = {
