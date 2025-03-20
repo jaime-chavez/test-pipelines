@@ -7,21 +7,21 @@ from airflow.operators.python_operator import PythonOperator
 
 
 # commons
-flex_template = 'hana_flex_template.json'               # 'csv_flex_template.json' (properties)
+flex_template = 'csv_flex_template'               # 'csv_flex_template.json' (properties)
 service_account = 'id-crp-dev-data-platform-dataf@crp-dev-data-platform.iam.gserviceaccount.com'           # '457816054800-compute@developer.gserviceaccount.com' (properties)
 pipeline_name = '2dev'               # 'dwh_demo_dev_csv'
 product_request_id = 3
 pipeline_id = 2
-dataflow_bucket = '<DATAFLOW_BUCKET>'           # 'gs://demo_dwh_bkt'  (properties)
-domain = '<DOMAIN>'
-subdomain = '<SUBDOMAIN>'
+dataflow_bucket = 'crp-dev-data-platform-bkt01'           # 'gs://demo_dwh_bkt'  (properties)
+domain = 'DOMAIN_3'
+subdomain = 'SUB_DOMAIN_1_2'
 stage = '<STAGE>>'
 dataflow_project = 'crp-dev-data-platform-bkt01'         # 'labuniformes'    Nombre del proyecto de la plataforma (properties)
 target_project = 'crp-dev-data-platform'             # 'labuniformes'    Nombre del proyecto de BQ destino
 target_dataset =  'demo_dwh'            # 'demo_dwh'
 target_table = 'oferta'                 # 'demo_test_csv'
 datetime_start = ''             # '2025-02-10 12:30'
-datetime_end = '<DATETIME_END>'                 # '2025-02-10 12:30' default None
+datetime_end = ''                 # '2025-02-10 12:30' default None
 subnetwork = 'projects/corp-dev-net-shared/regions/us-east4/subnetworks/corp-dev-nae4-data-platform-workers-sub-1'                     # 'projects/labuniformes/regions/us-east4/subnetworks/default' (properties)
 private_ip = 'False'
 machine_type = 'n1-standard-1'
@@ -37,9 +37,9 @@ ext = 'null'                                   # 'csv'
 datetime_format = 'null'           # '"%Y-%m-%d-%H-%M'
 delimitator = 'null'                   # ','
 date_field_name = '<DATE_FIELD_NAME>'
-allow_multi_date = '<ALLOW_MULTI_DATE>'         # False
-allow_accum_date = '<ALLOW_ACCUM_DATE>'         # False
-allow_multi_file = '<ALLOW_MULTI_FILE>'         # False
+allow_multi_date = TRUE         # False
+allow_accum_date = TRUE         # False
+allow_multi_file = TRUE         # False
 
 
 default_dag_args = {
