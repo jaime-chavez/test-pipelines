@@ -26,7 +26,7 @@ from airflow.operators.python_operator import PythonOperator
 job_name = "job6dev"
 pipeline_id = 6
 pipeline_name = 'job6dev'
-flex_template = 'api_flex_template'
+flex_template = 'api_flex_template.json'
 stage = 'dev'
 dataflow_bucket_name = 'demo_dwh_bkt'
 dataflow_project = 'labuniformes'
