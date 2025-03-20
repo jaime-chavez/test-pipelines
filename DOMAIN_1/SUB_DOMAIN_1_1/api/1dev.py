@@ -10,6 +10,7 @@ import json
 import requests
 import os
 import time
+import subprocess
 from airflow import models
 from airflow.exceptions import AirflowFailException
 from airflow.operators.python_operator import PythonOperator
@@ -54,10 +55,23 @@ default_dag_args = {
     # 'retry_delay': datetime.timedelta(minutes=1),
 }
 
+def get_token(**kwargs)
+    command = ['gcloud', 'auth', 'print-access-token']
+    try:
+        token = subprocess.run(command, capture_output=True, text=True, check=True)
+        print("Output:", result.stdout)
+        kwargs['ti'].xcom_push(key='token', value=token)
+    except subprocess.CalledProcessError as e:
+        print("An error occurred:")
+        print(e.stderr)
+        raise AirflowFailException
+
 def trigger_job(**kwargs):
+    token = kwargs['ti'].xcom_pull(task_ids='get_token', key='token')
     url = f'https://dataflow.googleapis.com/v1b3/projects/{dataflow_project}/locations/{region}/flexTemplates:launch'
     headers = {
-        'Authorization': f'Bearer {os.environ.get("TOKEN")}',
+        # 'Authorization': f'Bearer {os.environ.get("TOKEN")}',
+        'Authorization': f'Bearer {token}',
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
@@ -73,12 +87,12 @@ def trigger_job(**kwargs):
             "parameters": {
                 "dataflow_bucket_name": f'{dataflow_bucket_name}',
                 "dataflow_project": f'{dataflow_project}',
-                'dest_table_name': f'{target_project}.{target_dataset}.{target_table}',
+                'target_project': f'{target_project}',
+                'target_dataset': f'{target_dataset}',
+                'target_table': f'{target_table}',
                 "machine_type": 'n1-standard-1',
                 'pipeline_id': f'{pipeline_id}',
                 'pipeline_name': f'{pipeline_name}',
-                'query': f'{query}',
-                'secret_name_origin': f'{secret_name_origin}',
                 "service_account_email": f'{service_account}',
                 'stage': f'{stage}',
                 "staging_location": f'gs://{dataflow_bucket_name}/staging/{stage}',
@@ -87,8 +101,8 @@ def trigger_job(**kwargs):
                 'api_host': f'{api_host}',
                 'api_headers': f'{api_headers}',
                 'api_port': f'{api_port}',
-                'api_path_params': f'{api_pathparams}',
-                'api_query_params': f'{api_queryparams}',
+                'api_pathparams': f'{api_pathparams}',
+                'api_queryparams': f'{api_queryparams}',
                 'api_protocol': f'{api_protocol}'
             }
         }
@@ -117,25 +131,27 @@ def trigger_job(**kwargs):
 
 def check_status(**kwargs):
     job_id = kwargs['ti'].xcom_pull(task_ids='execute_dataflow_job', key='job_id')
+    token = kwargs['ti'].xcom_pull(task_ids='get_token', key='token')
     status = None
     if job_id is None:
         print('job_id is missing')
         raise AirflowFailException
     job_url = f'https://dataflow.googleapis.com/v1b3/projects/{dataflow_project}/locations/{region}/jobs/{job_id}'
     headers = {
-        'Authorization': f'Bearer {os.environ.get("TOKEN")}',
+        # 'Authorization': f'Bearer {os.environ.get("TOKEN")}',
+        'Authorization': f'Bearer {token}',
         'Accept': 'application/json',
         'Content-Type': 'application/json'
     }
     while status is None:
-        time.sleep(30)
+        time.sleep(60)
         response = requests.get(job_url, headers=headers).json()
         if response['currentState'] == 'JOB_STATE_FAILED':
             status = 'error'
         elif response['currentState'] == 'JOB_STATE_DONE':
             status = 'ok'
         print(f"Current status: {response['currentState']}")
-    change_status_url = f'http://localhost:8090/api/pipelines/status'
+    change_status_url = f'https://dataplatform-dev-back.liverpool.com.mx/api/pipelines/status/'
     headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -153,6 +169,11 @@ with models.DAG(
     description='Pipeline para leer tablas de Hana y cargar en bigquery',
     default_args=default_dag_args,
 ) as dag:
+    get_token = PythonOperator(
+        task_id="get_token",
+        python_callable=get_token,
+        provide_context=True,
+    )
     create_request = PythonOperator(
         task_id="execute_dataflow_job",
         python_callable=trigger_job,
@@ -164,4 +185,4 @@ with models.DAG(
         provide_context=True,
     )
 
-create_request >> status
+get_token >> create_request >> status
