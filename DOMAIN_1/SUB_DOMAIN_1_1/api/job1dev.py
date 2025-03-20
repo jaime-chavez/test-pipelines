@@ -38,7 +38,7 @@ service_account = '457816054800-compute@developer.gserviceaccount.com'
 subnetwork = 'projects/labuniformes/regions/us-east4/subnetworks/default'
 region = 'us-east4'
 
-#Datos Específicos
+#Datos Especificos
 api_method = 'GET'
 api_host = 'qat-api.liverpool.com.mx'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
