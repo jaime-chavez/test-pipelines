@@ -29,13 +29,13 @@ region = 'us-east4'                             # 'us-east4' (properties)
 
 # especificos
 origin_bucket =  'crp-dev-data-platform-bkt01'              # 'gs://demo_dwh_bkt'
-prefix = 'null'                             # default ''
-filename = 'null'                         # 'demo_dwh'
-sufix = 'null'                               # default ''
-separator = 'null'                       # '_'
-ext = 'null'                                   # 'csv'
-datetime_format = 'null'           # '"%Y-%m-%d-%H-%M'
-delimitator = 'null'                   # ','
+prefix = ''                             # default ''
+filename = 'demo_dwh'                         # 'demo_dwh'
+sufix = ''                               # default ''
+separator = '_'                       # '_'
+ext = 'csv'                                   # 'csv'
+datetime_format = '%Y-%m-%d-%H-%M'           # '"%Y-%m-%d-%H-%M'
+delimitator = ','                   # ','
 date_field_name = '<DATE_FIELD_NAME>'
 allow_multi_date = TRUE         # False
 allow_accum_date = TRUE         # False
