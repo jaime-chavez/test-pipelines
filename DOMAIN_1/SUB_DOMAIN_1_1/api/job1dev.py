@@ -39,7 +39,7 @@ subnetwork = 'projects/corp-dev-net-shared/regions/us-east4/subnetworks/corp-dev
 region = 'us-east4'
 
 #Datos Específicos
-api_method = '<API_METHOD>'
+api_method = 'GET'
 api_host = 'qat-api.liverpool.com.mx'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
