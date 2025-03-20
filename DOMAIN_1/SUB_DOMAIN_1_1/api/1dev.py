@@ -53,12 +53,12 @@ default_dag_args = {
     # 'retry_delay': datetime.timedelta(minutes=1),
 }
 
-def get_token(**kwargs)
+def get_token(**kwargs):
     command = ['gcloud', 'auth', 'print-access-token']
     try:
-        token = subprocess.run(command, capture_output=True, text=True, check=True)
+        result = subprocess.run(command, capture_output=True, text=True, check=True)
         print("Output:", result.stdout)
-        kwargs['ti'].xcom_push(key='token', value=token)
+        kwargs['ti'].xcom_push(key='token', value=result)
     except subprocess.CalledProcessError as e:
         print("An error occurred:")
         print(e.stderr)
