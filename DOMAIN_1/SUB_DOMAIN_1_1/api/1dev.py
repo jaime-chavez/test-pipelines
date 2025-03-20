@@ -26,19 +26,19 @@ from airflow.operators.python_operator import PythonOperator
 job_name = "Jobjob1dev_dev"
 pipeline_id = 1
 pipeline_name = '1dev'
-flex_template = 'hana_flex_template.json'
+flex_template = 'api_flex_template'
 stage = 'dev'
 dataflow_bucket_name = 'crp-dev-data-platform-bkt01'
 dataflow_project = 'crp-dev-data-platform-bkt01'
 target_project = 'crp-dev-data-platform'
 target_table = 'orders'
-target_dataset = 'demo_dwh'
+target_dataset = 'crp-dev-data-platform'
 datetime_start = ''
 service_account = 'id-crp-dev-data-platform-dataf@crp-dev-data-platform.iam.gserviceaccount.com'
-subnetwork = 'projects/corp-dev-net-shared/regions/us-east4/subnetworks/corp-dev-nae4-data-platform-workers-sub-1'
+subnetwork = 'projects/crp-dev-data-platform/regions/us-east4/subnetworks/default'
 region = 'us-east4'
 
-#Datos EspecÃ­ficos
+#Datos Específicos
 api_method = 'GET'
 api_host = 'qat-api.liverpool.com.mx'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
