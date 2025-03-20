@@ -23,7 +23,7 @@ from airflow.operators.python_operator import PythonOperator
 """
 
 #datos Generales
-job_name = "1devdev"
+job_name = "job1devdev"
 pipeline_id = 1
 pipeline_name = 'job1dev'
 flex_template = 'api_flex_template'
