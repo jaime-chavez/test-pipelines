@@ -37,7 +37,7 @@ target_table = 'properties'
 datetime_start = '' 
 service_account = '457816054800-compute@developer.gserviceaccount.com' 
 subnetwork = 'projects/labuniformes/regions/us-east4/subnetworks/default' 
-region = 'us-east4' 
+region = 'null' 
 
 
 default_dag_args = {
