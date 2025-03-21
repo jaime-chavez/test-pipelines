@@ -40,7 +40,7 @@ region = 'us-east4'
 
 #Datos Especificos
 api_method = 'GET'
-api_host = 'qat-api.liverpool.com.mx'qat-api.liverpool.com.mx/api/ordermanagement/orders'
+api_host = 'qat-api.liverpool.com.mx/api/ordermanagement/orders'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
 api_pathparams = ''
