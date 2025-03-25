@@ -28,14 +28,14 @@ machine_type = 'n1-standard-1'
 region = 'us-east4'                             # 'us-east4' (properties)
 
 # especificos
-origin_bucket =  'crp-dev-data-platform-bkt01'              # 'gs://demo_dwh_bkt'
+origin_bucket =  'null'              # 'gs://demo_dwh_bkt'
 prefix = ''                             # default ''
-filename = 'offers'                         # 'demo_dwh'
+filename = 'demo_dwh'                         # 'demo_dwh'
 sufix = ''                               # default ''
-separator = ','                       # '_'
+separator = '_'                       # '_'
 ext = 'csv'                                   # 'csv'
 datetime_format = '%Y-%m-%d-%H-%M'           # '"%Y-%m-%d-%H-%M'
-delimitator = ','                   # ','
+delimitator = ';'                   # ','
 date_field_name = '<DATE_FIELD_NAME>'
 allow_multi_date = TRUE         # False
 allow_accum_date = TRUE         # False
