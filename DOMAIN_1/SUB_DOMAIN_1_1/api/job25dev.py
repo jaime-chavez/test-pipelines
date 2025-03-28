@@ -41,7 +41,7 @@ network_tag = '<NETWORK_TAG>'
 
 #Datos Especificos
 api_method = 'GET'
-api_host = 'aae.ngrok.dev'
+api_host = 'aae.ngrok.dev/api/ordermanagement/orders'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
 api_pathparams = ' '
