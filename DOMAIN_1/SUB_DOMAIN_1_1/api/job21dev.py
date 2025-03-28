@@ -44,7 +44,7 @@ api_method = 'GET'
 api_host = 'qat-api.liverpool.com.mx/api/ordermanagement/orders'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
-api_pathparams = ' '
+api_pathparams = ''
 api_queryparams = '[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"end_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}]'
 api_protocol = 'https'
 
