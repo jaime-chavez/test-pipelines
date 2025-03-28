@@ -45,7 +45,7 @@ api_host = 'dataplatform-dev-back.liverpool.com.mx/api/pipelines/dummydatagenera
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
 api_pathparams = ''
-api_queryparams = ''[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"end_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}]''
+api_queryparams = '[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"end_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}]'
 api_protocol = 'https'
 
 
