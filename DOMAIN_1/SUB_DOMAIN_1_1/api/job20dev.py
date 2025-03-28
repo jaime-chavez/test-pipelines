@@ -170,7 +170,7 @@ def check_status(**kwargs):
 
 with models.DAG(
     f"{pipeline_name}",
-    schedule_interval=@Once
+    schedule_interval=None,   # @Once
     description='Pipeline para leer tablas de Hana y cargar en bigquery',
     default_args=default_dag_args,
 ) as dag:
