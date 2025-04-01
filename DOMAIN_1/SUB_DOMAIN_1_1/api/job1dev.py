@@ -36,7 +36,7 @@ target_dataset = 'demo_dwh_bkt'
 datetime_start = ''
 service_account = '457816054800-compute@developer.gserviceaccount.com'
 subnetwork = 'projects/labuniformes/regions/us-central1/subnetworks/default'
-region = 'us-east4'
+region = 'us-central1'
 network_tag = '<NETWORK_TAG>'
 
 #Datos Especificos
