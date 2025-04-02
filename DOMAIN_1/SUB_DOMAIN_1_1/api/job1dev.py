@@ -45,7 +45,7 @@ api_host = 'ms-pipeline-62hxxzcprq-uc.a.run.app/api/pipelines/dummydatagenerator
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
 api_pathparams = ''
-api_queryparams = '[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}]'
+api_queryparams = '[{"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"start_update_date", "type":"dynamic", "value":""}, {"name":"size", "type":"static", "value":"200"}, {"name":"page", "type":"static", "value":"0"}]'
 api_protocol = 'https'
 
 
