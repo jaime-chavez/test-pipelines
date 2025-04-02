@@ -41,7 +41,7 @@ network_tag = '<NETWORK_TAG>'
 
 #Datos Especificos
 api_method = 'GET'
-api_host = 'ms-pipeline-62hxxzcprq-uc.a.run.app/api/ordermanagement/orders'
+api_host = 'ms-pipeline-62hxxzcprq-uc.a.run.app/api/pipelines/dummydatagenerator/orders'
 api_headers = '[{"name":"apikey", "type":"secret", "value":"orders_apikey"}]'
 api_port = ''
 api_pathparams = ''
