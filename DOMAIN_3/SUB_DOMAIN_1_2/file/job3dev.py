@@ -42,7 +42,7 @@ network_tag = '<NETWORK_TAG>'
 #Datos Especificos
 origin_bucket =  'gs://demo_dwh_bkt/source_csv/'   
 prefix = ''      
-filename = 'offers' 
+filename = 'offers10000' 
 sufix = ''    
 separator = ';'
 ext = 'csv' 
