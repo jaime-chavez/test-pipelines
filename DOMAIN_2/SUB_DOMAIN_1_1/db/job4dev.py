@@ -40,7 +40,7 @@ region = 'us-central1'
 network_tag = '<NETWORK_TAG>' 
 
 #Datos Especificos
-query = 'Select DOMAIN_ID, NAME, KEY, DESCRIPTION, DOMAIN_ID, NAME, KEY, DESCRIPTION, DOMAIN_ID, NAME, KEY, DESCRIPTION from "DWH_AUTOMATION".demo_domain'     
+query = 'Select DOMAIN_ID, NAME, KEY, DESCRIPTION from "DWH_AUTOMATION".demo_domain'     
 limit_init_load = '100000' 
 secret_name_origin =  'hanasecret'
 
