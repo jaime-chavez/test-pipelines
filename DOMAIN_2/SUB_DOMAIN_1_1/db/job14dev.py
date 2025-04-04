@@ -41,7 +41,7 @@ network_tag = '<NETWORK_TAG>'
 
 #Datos Especificos
 query = 'Select DOMAIN_ID, NAME, KEY, DESCRIPTION from "DWH_AUTOMATION".demo_domain'     
-limit_init_load = '100000' 
+limit_init_load = '1000000' 
 secret_name_origin =  'hanasecret'
 
 
