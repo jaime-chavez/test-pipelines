@@ -74,7 +74,7 @@ def get_token(**kwargs):
         raise AirflowFailException
 
 
-def trigger_job(ti):
+def trigger_job(**kwargs):
     token = kwargs['ti'].xcom_pull(task_ids='get_token', key='token')
     url = f'https://dataflow.googleapis.com/v1b3/projects/{dataflow_project}/locations/{region}/flexTemplates:launch'
     headers = {
@@ -127,6 +127,7 @@ def trigger_job(ti):
         print(json_response)
         response.raise_for_status()
         kwargs['ti'].xcom_push(key='job_id', value=json_response['job']['id'])
+    
     except requests.exceptions.HTTPError as http_err:
         print(f"HTTP error occurred: {http_err}")
         raise AirflowFailException
