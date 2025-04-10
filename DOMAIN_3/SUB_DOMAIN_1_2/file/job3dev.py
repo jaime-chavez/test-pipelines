@@ -38,6 +38,7 @@ service_account = '457816054800-compute@developer.gserviceaccount.com'
 subnetwork = 'projects/labuniformes/regions/us-central1/subnetworks/default'
 region = 'us-central1'
 network_tag = '<NETWORK_TAG>' 
+status_url = 'https://ms-pipeline-62hxxzcprq-uc.a.run.app' 
 
 #Datos Especificos
 origin_bucket =  'gs://demo_dwh_bkt/source_csv/'   
@@ -47,11 +48,11 @@ sufix = ''
 separator = ','
 ext = 'csv' 
 datetime_format = '%Y-%m-%d-%H-%M' 
-delimitator = ';'    
+delimitator = '_'    
 date_field_name = "last-updated"
-allow_multi_date = False  
-allow_accum_date = False   
-allow_multi_file = False         
+allow_multi_date = True  
+allow_accum_date = True   
+allow_multi_file = True         
 
 
 default_dag_args = {
@@ -166,7 +167,7 @@ def check_status(**kwargs):
         elif response['currentState'] == 'JOB_STATE_DONE':
             status = 'ok'
         print(f"Current status: {response['currentState']}")
-    change_status_url = f'https://dataplatform-dev-back.liverpool.com.mx/api/pipelines/status/'
+    change_status_url = f'{status_url}/api/pipelines/status/'
     headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
