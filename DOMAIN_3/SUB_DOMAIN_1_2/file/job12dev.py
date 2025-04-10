@@ -49,9 +49,9 @@ ext = 'csv'
 datetime_format = '%Y-%m-%d-%H-%M' 
 delimitator = ';'    
 date_field_name = "last-updated"
-allow_multi_date = false  
-allow_accum_date = false   
-allow_multi_file = false         
+allow_multi_date = False  
+allow_accum_date = False   
+allow_multi_file = False         
 
 
 default_dag_args = {
