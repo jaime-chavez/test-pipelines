@@ -43,7 +43,7 @@ status_url = 'https://ms-pipeline-62hxxzcprq-uc.a.run.app'
 #Datos Especificos
 origin_bucket =  'gs://demo_dwh_bkt/source_csv/'   
 prefix = ''      
-filename = 'offers1000000' 
+filename = 'test cambio' 
 sufix = ''    
 separator = '_'
 ext = 'csv' 
